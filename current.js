@@ -80,19 +80,21 @@ function getConditions(location) {
                 data.currently.humidity,
                 data.currently.windSpeed,
                 data.currently.windBearing);
-                refreshDisplay(conditions);
+                refreshDisplay(conditions, location);
         })
         .catch(err => console.log(err));
 }
 
-function refreshDisplay(conditions) {
+function refreshDisplay(conditions, location) {
     let forecastDisplay = document.getElementsByClassName("forecast-display")[0].firstElementChild;
     let newline = "<br>";
-    forecastDisplay.innerHTML = "The current weather: " + conditions.currentSummary
-         + newline + "Nearest Storm: " + conditions.nearestStormDistance +
-         "\t Probability of precipitation: " + conditions.precipProbability +
-         newline + "Precipitation type: " + conditions.precipType + newline +
-         "Temperature: " + conditions.temperature + "\t Feels like: " +
+    forecastDisplay.innerHTML = "Weather for " + location.city + ", " +
+        location.state + newline + "The current weather: " +
+        conditions.currentSummary + newline + "Nearest Storm: " +
+        conditions.nearestStormDistance + "\t Probability of precipitation: " +
+        conditions.precipProbability + newline + "Precipitation type: " +
+        conditions.precipType + newline + "Temperature: " +
+        conditions.temperature + "\t Feels like: " +
           conditions.apparentTemperature + newline +
          "Dew point: " + conditions.dewPoint + "\t Humidity: " +
          conditions.humidity + newline + "Wind speed: " +

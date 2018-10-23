@@ -4,5 +4,48 @@
 
 .attribution {
     padding-left: 10px;
-    border: 3px solid black;
+    border: 3px dotted black;
+    text-align: center;
+}
+
+div.extended-forecast {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid darkblue;
+}
+
+div.forecast-display {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+table td {
+    border: 1px solid black;
+}
+
+.head {
+    text-align: center;
+    font-style: italic;
+}
+
+.sub-navigation {
+    text-align: center;
+}
+
+.navigation {
+    background-color: #728672;
+    border: inset;
+    font-size: 20pt;
+}
+
+:link {
+    color: #56c756;
+}
+
+:visited {
+    color: #023302;
 }

@@ -20,6 +20,7 @@ function getLocation() {
                     data.longitude, data.city, data.state_prov,
                     data.ip);
                 setStorage(location);
+                refreshDisplay(location);
                 return location
             })
             .catch(err => console.log(err));
@@ -28,6 +29,7 @@ function getLocation() {
     } else {
 
         location = retrieveLocation();
+        refreshDisplay(location);
         return location;
     }
 }
@@ -48,6 +50,11 @@ function retrieveLocation() {
         storage.getItem("longitude"), storage.getItem("city"),
         storage.getItem("state"), storage.getItem("ip"));
     return location;
+}
+
+function refreshDisplay(location) {
+    let welcomeText = document.getElementsByClassName("head")[0].childNodes[3];
+    welcomeText.innerHTML = `Get the forecast for ${location.city}, ${location.state}`;
 }
 
 document.addEventListener("DOMContentLoaded", event => {

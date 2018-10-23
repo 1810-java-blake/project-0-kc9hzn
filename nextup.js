@@ -79,12 +79,12 @@ function getConditions(location) {
                 data.daily.data[0].temperatureLow,
                 data.daily.data[0].apparentTemperatureHigh,
                 data.daily.data[0].apparentTemperatureLow);
-                refreshDisplay(conditions);
+                refreshDisplay(conditions, location);
         })
         .catch(err => console.log(err));
 }
 
-function refreshDisplay(conditions) {
+function refreshDisplay(conditions, location) {
     let forecastDisplay = document.getElementsByClassName("forecast-display")[0].firstElementChild;
     let table = "<table>";
     let tr = "<tr>";
@@ -106,8 +106,6 @@ function refreshDisplay(conditions) {
         "Feels Like (High): " + trans1 + conditions.dailyApparentTemperatureHigh + trans2 +
         "Feels Like (Low): " + trans1 + conditions.dailyApparentTemperatureLow +
         td_e + tr_e + table_e;
-
-         // todo: finish display of weather values
 }
 
 document.addEventListener("DOMContentLoaded", event => {
