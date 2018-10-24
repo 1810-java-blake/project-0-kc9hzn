@@ -85,7 +85,9 @@ function getConditions(location) {
 }
 
 function refreshDisplay(conditions, location) {
+    let locationDisplay = document.getElementsByClassName("location")[0].firstElementChild;
     let forecastDisplay = document.getElementsByClassName("forecast-display")[0].firstElementChild;
+    locationDisplay.innerHTML = `Forecast for ${location.city}, ${location.state}`;
     let table = "<table>";
     let tr = "<tr>";
     let td = "<td>";

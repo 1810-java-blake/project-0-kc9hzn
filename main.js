@@ -53,8 +53,8 @@ function retrieveLocation() {
 }
 
 function refreshDisplay(location) {
-    let welcomeText = document.getElementsByClassName("head")[0].childNodes[3];
-    welcomeText.innerHTML = `Get the forecast for ${location.city}, ${location.state}`;
+    let locationLabel = document.getElementsByClassName("location")[0].childNodes[1];
+    locationLabel.innerHTML = `Get the forecast for ${location.city}, ${location.state}`;
 }
 
 document.addEventListener("DOMContentLoaded", event => {

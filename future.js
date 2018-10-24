@@ -56,10 +56,7 @@ function retrieveLocation() {
 function getConditions(location) {
     let forecastArray;
     let resultArray;
-    let apiKey = "PGngla1yG89vn1fung3tPig1laoRnGpi";
-    let proxy = "https://cors-anywhere.herokuapp.com/"
     let locationURL = `https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='${location.city}, ${location.state}')&format=json`;
-    let locationKey;
     fetch(locationURL)
         .then(res => res.json())
         .then(data => {
@@ -70,13 +67,15 @@ function getConditions(location) {
                     resultArray[i].high, resultArray[i].low,
                     resultArray[i].text);
             }
-            refreshDisplay(forecastArray);
+            refreshDisplay(forecastArray, location);
         })
         .catch(err => console.log(err));
 }
 
-function refreshDisplay(conditions) {
+function refreshDisplay(conditions, location) {
     let forecastDisplay = document.getElementsByClassName("forecast-display")[0];
+    let locationDisplay = document.getElementsByClassName("location")[0].firstElementChild;
+    locationDisplay.innerHTML = `Forecast for ${location.city}, ${location.state}`;
     forecastDisplay.removeChild(forecastDisplay.firstElementChild);
     let div = "<div class='extended-forecast'>";
     let div_e = "</div>";

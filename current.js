@@ -86,10 +86,11 @@ function getConditions(location) {
 }
 
 function refreshDisplay(conditions, location) {
+    let locationDisplay = document.getElementsByClassName("location")[0].firstElementChild;
     let forecastDisplay = document.getElementsByClassName("forecast-display")[0].firstElementChild;
+    locationDisplay.innerHTML = `Forecast for ${location.city}, ${location.state}`;
     let newline = "<br>";
-    forecastDisplay.innerHTML = "Weather for " + location.city + ", " +
-        location.state + newline + "The current weather: " +
+    forecastDisplay.innerHTML = "The current weather: " +
         conditions.currentSummary + newline + "Nearest Storm: " +
         conditions.nearestStormDistance + "\t Probability of precipitation: " +
         conditions.precipProbability + newline + "Precipitation type: " +
